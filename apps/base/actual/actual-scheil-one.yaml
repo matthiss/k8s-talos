@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: actual-clusterip
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5006
+    targetPort: 5006
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: actual-clusterip
+subsets:
+- addresses:
+  - ip: 192.168.0.10
+  ports:
+  - port: 5006
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: actual-scheil-one-ingress
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - actual.scheil.one
+    secretName: actual-tls
+  rules:
+  - host: actual.scheil.one
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: actual-clusterip
+            port:
+              number: 5006
