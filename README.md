@@ -1,4 +1,4 @@
-# flux2-monitoring-example
+# k8s-talos
 
 This repository is an example of how to make use of
 [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
@@ -17,17 +17,6 @@ Components:
 
 ## Quickstart
 
-### Create a Kubernetes cluster
-
-For a quick local test, you can use [Kubernetes kind](https://kind.sigs.k8s.io/docs/user/quick-start/).
-Any other Kubernetes setup will work as well though.
-
-Create a cluster called `test` with the kind CLI:
-
-```shell
-kind create cluster --name test
-```
-
 ### Fork the GitHub repository
 
 In order to follow this guide you'll need a GitHub account and a
@@ -44,8 +33,8 @@ export GITHUB_USER=<your-username>
 Fork this repository on your personal account and clone it locally:
 
 ```shell
-git clone https://github.com/${GITHUB_USER}/flux2-monitoring-example.git
-cd flux2-monitoring-example
+git clone https://github.com/${GITHUB_USER}/k8s-talos.git
+cd k8s-talos
 ```
 
 ### Bootstrap Flux
@@ -55,10 +44,10 @@ Install the Flux controllers on the test cluster:
 ```shell
 flux bootstrap github \
     --owner=${GITHUB_USER} \
-    --repository=flux2-monitoring-example \
+    --repository=k8s-talos \
     --branch=main \
     --personal \
-    --path=clusters/test
+    --path=clusters/k8s-talos
 ```
 
 Wait for Flux to deploy the monitoring stack with:
