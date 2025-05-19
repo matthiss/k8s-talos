@@ -17,11 +17,23 @@ spec:
       containers:
         - name: uptime-kuma
           image: louislam/uptime-kuma:latest
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
           ports:
             - containerPort: 3001
           volumeMounts:
             - name: kuma-volume
               mountPath: /app/data
+          # securityContext:
+          #   allowPrivilegeEscalation: false
+          #   capabilities:
+          #     drop: ["ALL"]
+          #   runAsNonRoot: true
+          #   runAsUser: 1000
+          #   seccompProfile:
+          #     type: RuntimeDefault
       volumes:
         - name: kuma-volume
           persistentVolumeClaim:
