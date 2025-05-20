@@ -101,3 +101,8 @@ spec:
       replicas: 0
     bloomGateway:
       replicas: 0
+    persistence: # ADD THIS SECTION
+      enabled: true
+      storageClassName: "longhorn"
+      size: "10Gi"
+# remove the code related to the rules sidecar container, we don't have it in loki's spec
