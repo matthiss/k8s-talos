@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: loki
+  namespace: monitoring
 spec:
   interval: 5m
   dependsOn:
@@ -101,10 +102,9 @@ spec:
       replicas: 0
     bloomGateway:
       replicas: 0
-    persistence: # ADD THIS SECTION
+    persistence:
       enabled: true
       storageClassName: "longhorn"
       size: "10Gi"
-    sc-rules: # Adding the sidecar section and disabling
+    sc-rules: # Adding the sidecar section to disable sc-rules
       enabled: false
-# remove the code related to the rules sidecar container, we don't have it in loki's spec
