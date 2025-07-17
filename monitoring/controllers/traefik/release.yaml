@@ -1,0 +1,53 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: traefik
+      version: "^20.0.0" # Use a suitable version, check Traefik Helm chart releases
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: flux-system
+      interval: 1h
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  values:
+    ports:
+      web:
+        redirectTo:
+          port: websecure
+      websecure:
+        tls:
+          enabled: true
+    providers:
+      kubernetesIngress:
+        ingressClass: traefik
+        publishedService:
+          enabled: true
+    ingressRoute:
+      dashboard:
+        enabled: true
+        entryPoints:
+          - websecure
+        router:
+          tls:
+            certResolver: letsencrypt
+    certResolvers:
+      letsencrypt:
+        acme:
+          email: matthis@scheil.one
+          storage: /data/acme.json
+          tlsChallenge: {}
+          # httpChallenge:
+          #   entryPoint: web
+          #   # This is important for cert-manager to work with Traefik
+          #   # You might need to adjust the ingressClass if you have multiple ingress controllers
+          #   ingressClass: traefik
