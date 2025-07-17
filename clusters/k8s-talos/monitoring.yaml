@@ -10,6 +10,8 @@ spec:
   timeout: 10m
   prune: true
   wait: true
+  dependsOn:
+    - name: flux-system # Ensure flux-system Kustomization (which creates the traefik namespace) is ready
   sourceRef:
     kind: GitRepository
     name: flux-system
