@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: traefik
-      version: "^20.0.0" # Use a suitable version, check Traefik Helm chart releases
+      version: "^36.3.0" # Use a suitable version, check Traefik Helm chart releases
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -51,12 +51,3 @@ spec:
         storage: /data/acme.json
         httpChallenge:
           entryPoint: web
-    securityContext:
-      allowPrivilegeEscalation: false
-      readOnlyRootFilesystem: true
-      runAsNonRoot: true
-      runAsUser: 65532
-      seccompProfile:
-        type: RuntimeDefault
-    log:
-      level: DEBUG
