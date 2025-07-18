@@ -17,3 +17,10 @@ spec:
     certResolver: myresolver
     domains:
       - main: media.scheil.one
+    options:
+      name: default
+      kind: TraefikService
+    secretName: media-scheil-one-tls
+    issuerRef:
+      name: letsencrypt-prod
+      kind: ClusterIssuer
