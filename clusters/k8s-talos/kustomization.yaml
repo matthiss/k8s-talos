@@ -6,4 +6,4 @@ resources:
   - ../../monitoring/configs
   - ../../monitoring/traefik
   - ../../apps/external-apps/media-server
-  - ../../apps/k8s-apps
+  - ../../apps/external-apps/home-assistant
