@@ -35,6 +35,7 @@ spec:
         enabled: true
         namespaces:
           - "" # This tells Traefik to watch all namespaces for CRDs
+        allowCrossNamespace: true
     ingressRoute:
       dashboard:
         enabled: true
