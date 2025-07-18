@@ -20,6 +20,19 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
+    entryPoints:
+      web:
+        address: ":80/tcp"
+        http:
+          redirections:
+            entryPoint:
+              to: "websecure"
+              scheme: "https"
+              permanent: true
+      websecure:
+        address: ":443/tcp"
+        tls:
+          enabled: true
     providers:
       kubernetesIngress:
         ingressClass: traefik
