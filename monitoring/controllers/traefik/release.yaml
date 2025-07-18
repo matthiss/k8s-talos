@@ -41,7 +41,7 @@ spec:
             certResolver: letsencrypt
     certResolvers:
       letsencrypt:
-          email: matthis@scheil.one
-          storage: /data/acme.json
-          httpChallenge:
-            entryPoint: web
+        email: matthis@scheil.one
+        storage: /data/acme.json
+        httpChallenge:
+          entryPoint: web
