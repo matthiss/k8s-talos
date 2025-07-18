@@ -3,8 +3,7 @@ kind: Kustomization
 resources:
   - gotk-components.yaml
   - gotk-sync.yaml
-  - ../monitoring.yaml
-  - ../traefik-namespace.yaml
+  - ../traefik-namespace-kustomization.yaml
 labels:
   - pairs:
       toolkit.fluxcd.io/tenant: sre-team
