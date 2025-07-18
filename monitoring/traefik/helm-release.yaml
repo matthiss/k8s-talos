@@ -18,3 +18,12 @@ spec:
   values:
     service:
       type: LoadBalancer
+    deployment:
+      podSecurityContext:
+        seccompProfile:
+          type: RuntimeDefault
+    # Explicitly disable the new ACME feature causing conflicts
+    additionalArguments:
+      - "--certificatesresolvers.myresolver.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.myresolver.acme.email=your-email@example.com"
+      - "--entrypoints.websecure.http.tls.certresolver=myresolver"
