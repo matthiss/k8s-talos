@@ -6,15 +6,18 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./clusters/k8s-talos
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
+  resources:
+    - ./traefik-namespace-kustomization.yaml
+    - ./monitoring.yaml
+    - ./apps-kustomization.yaml
   healthChecks:
     - apiVersion: kustomize.toolkit.fluxcd.io/v1
       kind: Kustomization
-      name: flux-system
+      name: traefik-namespace
       namespace: flux-system
     - apiVersion: kustomize.toolkit.fluxcd.io/v1
       kind: Kustomization
