@@ -19,10 +19,6 @@ spec:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
-  dependsOn:
-    - name: traefik
-      kind: HelmRepository
-      namespace: flux-system
   values:
     values:
     providers:
