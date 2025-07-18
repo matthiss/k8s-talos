@@ -42,3 +42,5 @@ spec:
         storage: /data/acme.json
         httpChallenge:
           entryPoint: web
+    additionalArguments:
+      - --entrypoints.web.http.redirections.entrypoint.disable=true
