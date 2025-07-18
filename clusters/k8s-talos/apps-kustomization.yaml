@@ -12,9 +12,5 @@ spec:
     kind: GitRepository
     name: flux-system
   targetNamespace: default
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: traefik # Assuming Traefik is a dependency for apps
   dependsOn:
     - name: monitoring-controllers # Ensure Traefik is deployed before apps
