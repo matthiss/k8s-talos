@@ -36,14 +36,6 @@ spec:
           - "" # This tells Traefik to watch all namespaces for CRDs
         allowCrossNamespace: true
         allowExternalNameServices: true
-    ingressRoute:
-      dashboard:
-        enabled: true
-        entryPoints:
-          - websecure
-        router:
-          tls:
-            certResolver: letsencrypt
     certResolvers:
       letsencrypt:
         email: matthis@scheil.one
