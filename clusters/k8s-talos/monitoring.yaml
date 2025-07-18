@@ -15,7 +15,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./monitoring/controllers
+  path: ./monitoring/controllers/traefik
   targetNamespace: traefik
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
