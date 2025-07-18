@@ -1,0 +1,20 @@
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: photo-server-ingressroute
+  namespace: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`photos.scheil.one`)
+      kind: Rule
+      services:
+        - name: photo-server
+          port: 2283
+  tls:
+    certResolver: letsencrypt-prod
+    domains:
+      - main: photos.scheil.one
+    secretName: photos-scheil-one-tls
