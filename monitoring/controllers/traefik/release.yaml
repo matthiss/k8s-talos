@@ -19,36 +19,3 @@ spec:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
-  values:
-    entryPoints:
-      web:
-        address: ":80/tcp"
-        http:
-          redirections:
-            entryPoint:
-              to: "websecure"
-              scheme: "https"
-              permanent: true
-      websecure:
-        address: ":443/tcp"
-        tls:
-          enabled: true
-    providers:
-      kubernetesIngress:
-        ingressClass: traefik
-        publishedService:
-          enabled: true
-      kubernetesCRD:
-        enabled: true
-        namespaces:
-          - "" # This tells Traefik to watch all namespaces for CRDs
-        allowCrossNamespace: true
-        allowExternalNameServices: true
-    certResolvers:
-      letsencrypt:
-        email: matthis@scheil.one
-        storage: /data/acme.json
-        httpChallenge:
-          entryPoint: web
-    additionalArguments:
-      - --entrypoints.web.http.redirections.entrypoint.disable=true
