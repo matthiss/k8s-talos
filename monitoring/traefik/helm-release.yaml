@@ -22,8 +22,20 @@ spec:
       podSecurityContext:
         seccompProfile:
           type: RuntimeDefault
-    # Explicitly disable the new ACME feature causing conflicts
-    additionalArguments:
-      - "--certificatesresolvers.myresolver.acme.storage=/data/acme.json"
-      - "--certificatesresolvers.myresolver.acme.email=your-email@example.com"
-      - "--entrypoints.websecure.http.tls.certresolver=myresolver"
+    # Enable ACME for Let's Encrypt
+    certificatesResolvers:
+      letsencrypt-prod:
+        acme:
+          email: your-email@example.com # <--- IMPORTANT: Replace with your actual email
+          storage: /data/acme.json
+          httpChallenge:
+            entryPoint: web
+    # Configure entrypoints
+    entryPoints:
+      web:
+        address: ":80"
+      websecure:
+        address: ":443"
+        http:
+          tls:
+            certResolver: letsencrypt-prod
