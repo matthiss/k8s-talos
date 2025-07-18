@@ -1,49 +1,30 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jellyfin-clusterip
+  name: jellyfin-external
   namespace: default
 spec:
-  type: ClusterIP
+  type: ExternalName
+  externalName: 192.168.0.95
   ports:
   - port: 8096
     targetPort: 8096
 ---
-apiVersion: v1
-kind: Endpoints
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
 metadata:
-  name: jellyfin-clusterip
+  name: media-scheil-one-ingressroute
   namespace: default
-subsets:
-- addresses:
-  - ip: 192.168.0.95
-  ports:
-  - port: 8096
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: media-scheil-one-ingress
-  namespace: default
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect-scheme
 spec:
-  ingressClassName: traefik
-  
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`media.scheil.one`)
+      kind: Rule
+      services:
+        - name: jellyfin-external
+          port: 8096
+      middlewares:
+        - name: traefik-redirect-scheme@kubernetescrd
   tls:
-  - hosts:
-    - media.scheil.one
     secretName: jellyfin-tls
-  rules:
-  - host: media.scheil.one
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: jellyfin-clusterip
-            port:
-              number: 8096
