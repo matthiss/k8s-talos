@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - media-server.yaml
   - media-server-ingressroute.yaml
+  - media-server-certificate.yaml
