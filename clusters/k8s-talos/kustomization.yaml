@@ -7,3 +7,4 @@ resources:
   - ../../monitoring/traefik
   - ../../apps/external-apps/media-server
   - ../../apps/external-apps/home-assistant
+  - ../../apps/external-apps/file-server

@@ -1,0 +1,20 @@
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: file-server-ingressroute
+  namespace: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`files.scheil.one`)
+      kind: Rule
+      services:
+        - name: file-server
+          port: 8095
+  tls:
+    certResolver: letsencrypt-prod
+    domains:
+      - main: files.scheil.one
+    secretName: files-scheil-one-tls
