@@ -45,3 +45,10 @@ spec:
         storage: /data/acme.json
         httpChallenge:
           entryPoint: web
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 65532
+      seccompProfile:
+        type: RuntimeDefault
