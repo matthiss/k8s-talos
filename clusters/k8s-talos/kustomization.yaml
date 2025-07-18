@@ -6,3 +6,4 @@ resources:
   - ../../monitoring/configs
   - ../../monitoring/traefik
   - ../../monitoring/whoami
+  - ../../monitoring/external-app

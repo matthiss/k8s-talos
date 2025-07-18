@@ -1,0 +1,15 @@
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: media-server-ingressroute
+  namespace: traefik
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`media.scheil.one`)
+      kind: Rule
+      services:
+        - name: media-server
+          port: 8096
