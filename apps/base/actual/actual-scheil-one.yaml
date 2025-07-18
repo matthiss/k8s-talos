@@ -25,11 +25,11 @@ metadata:
   namespace: default
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-spec:
-  ingressClassName: traefik
-  annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect-scheme@kubernetescrd
+spec:
+  ingressClassName: traefik
+  
   tls:
   - hosts:
     - actual.scheil.one
