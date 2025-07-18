@@ -4,3 +4,4 @@ resources:
   - flux-system
   - ../../monitoring/configs
   - ../../monitoring/traefik
+  - ../../monitoring/whoami
