@@ -44,5 +44,5 @@ spec:
         acme:
           email: matthis@scheil.one
           storage: /data/acme.json
-          httpChallenge:
-            entryPoint: web
+          # httpChallenge:
+          #   entryPoint: web
