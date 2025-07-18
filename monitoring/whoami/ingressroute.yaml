@@ -5,7 +5,7 @@ metadata:
   name: whoami-ingressroute
   namespace: whoami
 spec:
-  entrypoints:
+  entryPoints:
     - web
   routes:
     - match: Host(`whoami.scheil.one`)
