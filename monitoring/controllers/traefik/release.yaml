@@ -44,8 +44,7 @@ spec:
         acme:
           email: matthis@scheil.one
           storage: /data/acme.json
-          tlsChallenge:
-            enabled: true
+          tlsChallenge: {}
           # httpChallenge:
           #   entryPoint: web
           #   # This is important for cert-manager to work with Traefik
