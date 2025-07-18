@@ -5,4 +5,5 @@ resources:
   - ../../monitoring/namespace
   - ../../monitoring/configs
   - ../../monitoring/traefik
-  - ../../monitoring/external-app
+  - ../../apps/external-apps/media-server
+  - ../../apps/k8s-apps
