@@ -20,11 +20,6 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
-    ports:
-      web:
-      websecure:
-        tls:
-          enabled: true
     providers:
       kubernetesIngress:
         ingressClass: traefik
