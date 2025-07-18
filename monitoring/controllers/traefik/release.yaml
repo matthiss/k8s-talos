@@ -31,6 +31,10 @@ spec:
         ingressClass: traefik
         publishedService:
           enabled: true
+      kubernetesCRD:
+        enabled: true
+        namespaces:
+          - "" # This tells Traefik to watch all namespaces for CRDs
     ingressRoute:
       dashboard:
         enabled: true
