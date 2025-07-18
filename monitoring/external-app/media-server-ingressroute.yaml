@@ -6,10 +6,14 @@ metadata:
   namespace: traefik
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: Host(`media.scheil.one`)
       kind: Rule
       services:
         - name: media-server
           port: 8096
+  tls:
+    certResolver: myresolver
+    domains:
+      - main: media.scheil.one
