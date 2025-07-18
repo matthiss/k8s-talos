@@ -56,3 +56,5 @@ spec:
       runAsUser: 65532
       seccompProfile:
         type: RuntimeDefault
+    log:
+      level: DEBUG
