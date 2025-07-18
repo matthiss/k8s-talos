@@ -46,8 +46,3 @@ spec:
           storage: /data/acme.json
           httpChallenge:
             entryPoint: web
-          # httpChallenge:
-          #   entryPoint: web
-          #   # This is important for cert-manager to work with Traefik
-          #   # You might need to adjust the ingressClass if you have multiple ingress controllers
-          #   ingressClass: traefik
