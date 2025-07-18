@@ -11,7 +11,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  namespace: default
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
