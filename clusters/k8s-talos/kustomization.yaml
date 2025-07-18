@@ -5,5 +5,4 @@ resources:
   - ../../monitoring/namespace
   - ../../monitoring/configs
   - ../../monitoring/traefik
-  - ../../monitoring/whoami
   - ../../monitoring/external-app
