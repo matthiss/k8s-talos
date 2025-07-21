@@ -26,7 +26,7 @@ spec:
     certificatesResolvers:
       letsencrypt-prod:
         acme:
-          email: your-email@example.com # <--- IMPORTANT: Replace with your actual email
+          email: matthis@scheil.one
           storage: /data/acme.json
           httpChallenge:
             entryPoint: web
