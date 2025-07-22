@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: crowdsec-bouncers
+  namespace: crowdsec
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: crowdsec-bouncer-traefik
+      version: "0.2.4"
+      sourceRef:
+        kind: HelmRepository
+        name: crowdsec
+        namespace: flux-system
+      interval: 1m
