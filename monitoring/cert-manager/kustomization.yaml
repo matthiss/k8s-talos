@@ -3,4 +3,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - helm-repository.yaml
-  - helm-release.yaml
+  - hetzner-webhook-repo.yaml
+  - hetzner-webhook-release.yaml
+  - clusterissuer.yaml
+  - hetzner-secret.sops.yaml

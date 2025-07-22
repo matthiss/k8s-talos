@@ -6,6 +6,5 @@ resources:
   - ../../monitoring/configs
   
   - ../../monitoring/traefik
-  
   - ../../monitoring/crowdsec
   

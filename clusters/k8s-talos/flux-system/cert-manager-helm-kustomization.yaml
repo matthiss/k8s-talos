@@ -1,16 +1,12 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: k8s-talos-cert-manager
+  name: k8s-talos-cert-manager-helm
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./monitoring/cert-manager
+  path: ./clusters/k8s-talos/helm-releases/cert-manager
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  dependsOn:
-    - name: cert-manager
-      namespace: cert-manager
-      kind: HelmRelease
