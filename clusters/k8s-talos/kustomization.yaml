@@ -4,6 +4,7 @@ resources:
   - flux-system
   - ../../monitoring/namespace
   - ../../monitoring/configs
+  
   - ../../monitoring/traefik
   
   - ../../monitoring/crowdsec
