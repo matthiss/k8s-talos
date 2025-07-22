@@ -3,9 +3,6 @@ kind: Kustomization
 resources:
   - gotk-components.yaml
   - gotk-sync.yaml
-  - apps-kustomization.yaml
-  - cert-manager-helm-kustomization.yaml
-  - cert-manager-components-kustomization.yaml
 labels:
   - pairs:
       toolkit.fluxcd.io/tenant: sre-team
