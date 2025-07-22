@@ -7,4 +7,4 @@ resources:
   - hetzner-webhook-repo.yaml
   - hetzner-webhook-release.yaml
   - clusterissuer.yaml
-  - secret.sops.yaml
+  - hetzner-secret.sops.yaml
