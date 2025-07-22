@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../apps/external-apps/media-server
+  - ../../apps/external-apps/home-assistant
+  - ../../apps/external-apps/file-server
+  - ../../apps/external-apps/photo-server
